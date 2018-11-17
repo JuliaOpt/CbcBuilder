@@ -57,7 +57,7 @@ push!(platforms, Windows(:x86_64,compiler_abi=CompilerABI(:gcc6)))
 
 # The products that we will ensure are always built
 products(prefix) = [
-    LibraryProduct(prefix, "libCbcSolver", :libCbcSolver),
+    LibraryProduct(prefix, "libCbcSolver", :libcbcsolver),
     LibraryProduct(prefix, "libCbc", :libCbc)
 ]
 
