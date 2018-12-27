@@ -32,9 +32,9 @@ cd build/
 --with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
+--with-clp-lib="-L${prefix}/lib -lClp -lOsiClp" --with-clp-incdir="$prefix/include/coin" \
+--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils" \
   LDFLAGS=-ldl;
---with-clp-lib="-L${prefix}/lib -lClp -lOsiClp" --with-clp-incdir="$prefix/include/coin" #\
-#--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils"
 ## STATIC BUILD END
 
 
