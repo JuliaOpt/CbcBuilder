@@ -47,6 +47,28 @@ if [ $target = "x86_64-apple-darwin14" ]; then
 --with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils -lbz2 -lz -lcoinlapack -lcoinblas" \
   LDFLAGS=-ldl;
 
+elif [ $target = "x86_64-w64-mingw32" ] || [ $target = "i686-w64-mingw32" ]; then 
+
+ for path in ${LD_LIBRARY_PATH//:/ }; do
+    for file in $(ls $path/*.la); do
+        echo "$file"
+        baddir=$(sed -n "s|libdir=||p" $file)
+        sed -i~ -e "s|$baddir|'$path'|g" $file
+    done
+ done
+../configure --prefix=$prefix --with-pic --disable-pkg-config --host=${target} --enable-shared --disable-static \
+--enable-dependency-linking lt_cv_deplibs_check_method=pass_all \
+--with-cgl-lib="-L${prefix}/lib -lCgl" --with-cgl-incdir="$prefix/include/coin" \
+--with-asl-lib="-L${prefix}/lib -lasl" --with-asl-incdir="$prefix/include/asl" \
+--with-blas-lib="-L${prefix}/lib -lcoinblas" \
+--with-lapack-lib="-L${prefix}/lib -lcoinlapack" \
+--with-metis-lib="-L${prefix}/lib -lcoinmetis" --with-metis-incdir="$prefix/include/coin/ThirdParty" \
+--with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
+--with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
+--with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
+--with-clp-lib="-L${prefix}/lib -lClp -lOsiClp" --with-clp-incdir="$prefix/include/coin" \
+--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils -lcoinlapack -lcoinblas -lgfortran" 
+
 else
 ../configure --prefix=$prefix --with-pic --disable-pkg-config --host=${target} --enable-shared --disable-static \
 --enable-dependency-linking lt_cv_deplibs_check_method=pass_all \
