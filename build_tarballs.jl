@@ -21,7 +21,14 @@ cd Cbc-releases-2.9.9/
 update_configure_scripts
 mkdir build
 cd build/
+
 ## STATIC BUILD START
+# Staticly link all dependencies and export only Clp symbols
+
+# force only exporting symbols related to Clp
+sed -i~ -e 's|LT_LDFLAGS="-no-undefined"|LT_LDFLAGS="-no-undefined -export-symbols-regex \\"Cbc\\""|g' ../configure
+sed -i~ -e 's|LT_LDFLAGS="-no-undefined"|LT_LDFLAGS="-no-undefined -export-symbols-regex \\"Cbc\\""|g' ../Cbc/configure
+
 ../configure --prefix=$prefix --with-pic --disable-pkg-config --host=${target} --enable-shared --disable-static \
 --enable-dependency-linking lt_cv_deplibs_check_method=pass_all \
 --with-cgl-lib="-L${prefix}/lib -lCgl" --with-cgl-incdir="$prefix/include/coin" \
