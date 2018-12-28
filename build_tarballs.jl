@@ -22,6 +22,7 @@ update_configure_scripts
 mkdir build
 cd build/
 
+
 ## STATIC BUILD START
 # Staticly link all dependencies and export only Clp symbols
 
@@ -72,7 +73,7 @@ elif [ $target = "x86_64-w64-mingw32" ] || [ $target = "i686-w64-mingw32" ]; the
 else
 ../configure --prefix=$prefix --with-pic --disable-pkg-config --host=${target} --enable-shared --disable-static \
 --enable-dependency-linking lt_cv_deplibs_check_method=pass_all \
---with-cgl-lib="-L${prefix}/lib -lCgl" --with-cgl-incdir="$prefix/include/coin" \
+--with-cgl-lib="-L${prefix}/lib -lCgl -lgfortran" --with-cgl-incdir="$prefix/include/coin" \
 --with-asl-lib="-L${prefix}/lib -lasl" --with-asl-incdir="$prefix/include/asl" \
 --with-blas-lib="-L${prefix}/lib -lcoinblas" \
 --with-lapack-lib="-L${prefix}/lib -lcoinlapack -lgfortran" \
@@ -81,7 +82,7 @@ else
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
 --with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
---with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi ${prefix}/lib/libClp.a -lCoinUtils" \
+--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi ${prefix}/lib/libClp.a -lCoinUtils -lgfortran -lcoinmumps" \
   LDFLAGS=-ldl;
 fi
 ## STATIC BUILD END
