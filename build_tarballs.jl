@@ -75,7 +75,7 @@ else
 --with-cgl-lib="-L${prefix}/lib -lCgl" --with-cgl-incdir="$prefix/include/coin" \
 --with-asl-lib="-L${prefix}/lib -lasl" --with-asl-incdir="$prefix/include/asl" \
 --with-blas-lib="-L${prefix}/lib -lcoinblas" \
---with-lapack-lib="-L${prefix}/lib -lcoinlapack" \
+--with-lapack-lib="-L${prefix}/lib -lcoinlapack -lgfortran" \
 --with-metis-lib="-L${prefix}/lib -lcoinmetis" --with-metis-incdir="$prefix/include/coin/ThirdParty" \
 --with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
