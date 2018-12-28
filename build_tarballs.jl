@@ -43,7 +43,7 @@ if [ $target = "x86_64-apple-darwin14" ]; then
 --with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
---with-clp-lib="-L${prefix}/lib -l:libClp.a -l:libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
+--with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
 --with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils -lbz2 -lz -lcoinlapack -lcoinblas" \
   LDFLAGS=-ldl;
 
@@ -66,7 +66,7 @@ elif [ $target = "x86_64-w64-mingw32" ] || [ $target = "i686-w64-mingw32" ]; the
 --with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
---with-clp-lib="-L${prefix}/lib -l:libClp.dll.a -l:libOsiClp.dll.a" --with-clp-incdir="$prefix/include/coin" \
+--with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
 --with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils -lcoinlapack -lcoinblas -lgfortran" 
 
 else
@@ -80,7 +80,7 @@ else
 --with-mumps-lib="-L${prefix}/lib -lcoinmumps" --with-mumps-incdir="$prefix/include/coin/ThirdParty" \
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
---with-clp-lib="-L${prefix}/lib -l:libClp.a -l:libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
+--with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
 --with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils" \
   LDFLAGS=-ldl;
 fi
