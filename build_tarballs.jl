@@ -141,7 +141,7 @@ products(prefix) = [
 # Dependencies that must be installed before this package can be built
 dependencies = [
     "https://github.com/juan-pablo-vielma/CglBuilder/releases/download/v0.59.10-1-static/build_CglBuilder.v0.59.10.jl",
-    "https://github.com/JuliaOpt/ClpBuilder/releases/download/v1.16.11-1-static/build_ClpBuilder.v1.16.11.jl",
+  #  "https://github.com/JuliaOpt/ClpBuilder/releases/download/v1.16.11-1-static/build_ClpBuilder.v1.16.11.jl",
     "https://github.com/juan-pablo-vielma/OsiBuilder/releases/download/v0.107.9-1-static/build_OsiBuilder.v0.107.9.jl",
     "https://github.com/juan-pablo-vielma/CoinUtilsBuilder/releases/download/v2.10.14-1-static/build_CoinUtilsBuilder.v2.10.14.jl",
     "https://github.com/juan-pablo-vielma/COINMumpsBuilder/releases/download/v1.6.0-1-static/build_COINMumpsBuilder.v1.6.0.jl",
