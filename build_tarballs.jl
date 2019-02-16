@@ -46,7 +46,8 @@ if [ $target = "x86_64-apple-darwin14" ]; then
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
 --with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
 --with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi ${prefix}/lib/libClp.a -lCoinUtils -lcoinmumps -lcoinmetis -lbz2 -lz -lcoinlapack -lcoinblas" \
-  LDFLAGS=-ldl;
+--enable-cbc-parallel \
+LDFLAGS=-ldl;
 
 elif [ $target = "x86_64-w64-mingw32" ] || [ $target = "i686-w64-mingw32" ]; then 
 
@@ -68,7 +69,8 @@ elif [ $target = "x86_64-w64-mingw32" ] || [ $target = "i686-w64-mingw32" ]; the
 --with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 --with-osi-lib="-L${prefix}/lib -lOsi" --with-osi-incdir="$prefix/include/coin" \
 --with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
---with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi ${prefix}/lib/libClp.a -lcoinmumps -lcoinmetis -lCoinUtils -lcoinlapack -lcoinblas -lgfortran" 
+--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi ${prefix}/lib/libClp.a -lcoinmumps -lcoinmetis -lCoinUtils -lcoinlapack -lcoinblas -lgfortran" \
+--enable-cbc-parallel
 
 else
   for path in ${LD_LIBRARY_PATH//:/ }; do
@@ -90,6 +92,7 @@ else
   --with-clp-lib="${prefix}/lib/libClp.a ${prefix}/lib/libOsiClp.a" --with-clp-incdir="$prefix/include/coin" \
   --with-coindepend-lib="${prefix}/lib/libCgl.a ${prefix}/lib/libOsi.a ${prefix}/lib/libClp.a ${prefix}/lib/libcoinmumps.a ${prefix}/lib/libcoinmetis.a ${prefix}/lib/libCoinUtils.a ${prefix}/lib/libcoinlapack.a ${prefix}/lib/libcoinblas.a -lgfortran" \
   lt_cv_deplibs_check_method=pass_all \
+  --enable-cbc-parallel \
   LDFLAGS=-ldl;
 fi
 ## STATIC BUILD END
@@ -107,7 +110,8 @@ fi
 #--with-coinutils-lib="-L${prefix}/lib -lCoinUtils" --with-coinutils-incdir="$prefix/include/coin" \
 #--with-osi-lib="-L${prefix}/lib -lOsi"  --with-osi-incdir="$prefix/include/coin" \
 #--with-clp-lib="-L${prefix}/lib -lClp -lOsiClp" --with-clp-incdir="$prefix/include/coin" \
-#--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils"
+#--with-coindepend-lib="-L${prefix}/lib -lCgl -lOsi -lClp -lCoinUtils" \
+#--enable-cbc-parallel
 ## DYNAMIC BUILD END
 
 make -j${nproc}
