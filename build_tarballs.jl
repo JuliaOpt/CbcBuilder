@@ -3,7 +3,7 @@
 using BinaryBuilder
 
 name = "CbcBuilder"
-version = v"2.9.9"
+version = v"2.10.3"
 
 # Collection of sources required to build CbcBuilder
 sources = [
@@ -16,7 +16,7 @@ script = raw"""
 cd $WORKSPACE/srcdir
 set -e
 
-cd Cbc-releases-2.9.9/
+cd Cbc-releases-2.10.3/
 
 update_configure_scripts
 mkdir build
