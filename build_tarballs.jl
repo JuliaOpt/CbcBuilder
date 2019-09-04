@@ -7,8 +7,8 @@ version = v"2.9.9"
 
 # Collection of sources required to build CbcBuilder
 sources = [
-    "https://github.com/coin-or/Cbc/archive/releases/2.9.9.tar.gz" =>
-    "3760fa9fe24fe3390c8b3d5f03583a62652d9b159aef9b0b609e4948ef1b8f29",
+    "https://github.com/coin-or/Cbc/archive/releases/2.10.3.tar.gz" =>
+    "944c1f717e653aa04f4d6c775aa91d749ab5990d6ee9c3e4f76b9df5bc6e2a8d",
 ]
 
 # Bash recipe for building across all platforms
