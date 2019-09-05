@@ -144,15 +144,15 @@ products(prefix) = [
 
 # Dependencies that must be installed before this package can be built
 dependencies = [
-    "https://github.com/juan-pablo-vielma/CglBuilder/releases/download/v0.59.10-1-static/build_CglBuilder.v0.59.10.jl",
+    "https://github.com/JuliaOpt/CglBuilder/releases/download/v0.60.2-static/build_CglBuilder.v0.60.2.jl",
   #  "https://github.com/JuliaOpt/ClpBuilder/releases/download/v1.16.11-1-static/build_ClpBuilder.v1.16.11.jl",
-    "https://github.com/juan-pablo-vielma/OsiBuilder/releases/download/v0.107.9-1-static/build_OsiBuilder.v0.107.9.jl",
-    "https://github.com/juan-pablo-vielma/CoinUtilsBuilder/releases/download/v2.10.14-1-static/build_CoinUtilsBuilder.v2.10.14.jl",
-    "https://github.com/juan-pablo-vielma/COINMumpsBuilder/releases/download/v1.6.0-1-static/build_COINMumpsBuilder.v1.6.0.jl",
-    "https://github.com/juan-pablo-vielma/COINMetisBuilder/releases/download/v1.3.5-1-static/build_COINMetisBuilder.v1.3.5.jl",
-    "https://github.com/juan-pablo-vielma/COINLapackBuilder/releases/download/v1.5.6-1-static/build_COINLapackBuilder.v1.5.6.jl",
-    "https://github.com/juan-pablo-vielma/COINBLASBuilder/releases/download/v1.4.6-1-static/build_COINBLASBuilder.v1.4.6.jl",
-    "https://github.com/juan-pablo-vielma/ASLBuilder/releases/download/v3.1.0-1-static/build_ASLBuilder.v3.1.0.jl"
+    "https://github.com/JuliaOpt/OsiBuilder/releases/download/v0.108.5-static/build_OsiBuilder.v0.108.5.jl",
+    "https://github.com/JuliaOpt/CoinUtilsBuilder/releases/download/v2.11.3-static/build_CoinUtilsBuilder.v2.11.3.jl",
+    "https://github.com/JuliaOpt/COINMumpsBuilder/releases/download/v1.6.0-1-static/build_COINMumpsBuilder.v1.6.0.jl",
+    "https://github.com/JuliaOpt/COINMetisBuilder/releases/download/v1.3.5-1-static/build_COINMetisBuilder.v1.3.5.jl",
+    "https://github.com/JuliaOpt/COINLapackBuilder/releases/download/v1.6.0-static/build_COINLapackBuilder.v1.6.0.jl",
+    "https://github.com/JuliaOpt/COINBLASBuilder/releases/download/v1.4.6-1-static/build_COINBLASBuilder.v1.4.6.jl",
+    "https://github.com/JuliaOpt/ASLBuilder/releases/download/v3.1.0-1-static/build_ASLBuilder.v3.1.0.jl"
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
