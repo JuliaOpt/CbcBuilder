@@ -9,6 +9,7 @@ version = v"2.10.3"
 sources = [
     "https://github.com/coin-or/Cbc/archive/releases/2.10.3.tar.gz" =>
     "944c1f717e653aa04f4d6c775aa91d749ab5990d6ee9c3e4f76b9df5bc6e2a8d",
+    "./bundled",
 ]
 
 # Bash recipe for building across all platforms
@@ -17,6 +18,10 @@ cd $WORKSPACE/srcdir
 set -e
 
 cd Cbc-releases-2.10.3/
+cd Cbc/src
+mv Cbc_C_Interface.cpp Cbc_C_Interface.cpp.orig
+patch -l Cbc_C_Interface.cpp.orig $WORKSPACE/srcdir/cbc-extra/no_lp.patch  -o Cbc_C_Interface.cpp
+cd ../..
 
 update_configure_scripts
 mkdir build
