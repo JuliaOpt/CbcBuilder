@@ -365,8 +365,16 @@ else
     LDFLAGS=-ldl;
 fi
 make -j${nproc}
+
+# Clean-up bin directory before installing
+rm ${prefix}/bin/*
+
+# Install
 make install
 
+# Clean-up lib directory
+rm ${prefix}/lib/*.a
+rm ${prefix}/lib/*.la
 """
 
 # These are the platforms we will build for by default, unless further
