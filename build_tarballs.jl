@@ -2,11 +2,21 @@
 # `julia build_tarballs.jl --help` to see a usage message.
 using BinaryBuilder
 
+# To propose an update to the Cbc binaries please follow these steps:
+# 1) Fork the CbcBuilder repository and create a new branch
+# 2) Modify the build script below and test that it compiles for all architectures by running
+#    julia --color=yes build_tarballs.jl --verbose 
+#    Note: This build make take a long time
+#    Note: Adding the --debug argument to the command will drop you into the build environment for debugging
+# 3) Create a github release in your fork of CbcBuilder with the generated tarballs and build_CbcBuilder.vX.X.X.jl
+#    Note: https://github.com/tcnksm/ghr is usefull to automate this release creation
+# 4) 
+#a new version
 # Ideally, any update would need changes only on the EASY-CHANGE-BLOCK below
 # Note that if two sources have the same version then they need to have
 # different extension so that the corresponding filenames are different
 
-# START-EASY-CHANGE-BLOCK
+##START-EASY-CHANGE-BLOCK
 Cbc_version = v"2.10.3"
 Cbc_extension = "tar.gz"
 Cbc_hash = "944c1f717e653aa04f4d6c775aa91d749ab5990d6ee9c3e4f76b9df5bc6e2a8d"
@@ -37,7 +47,7 @@ COINBLAS_hash = "f9601efb98f04fdba220d49d5bda98d2a5a5e2ed7564df339bc7149b0c303f0
 ASL_version = v"3.1.0"
 ASL_extension = "tar.gz"
 ASL_hash = "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
-# END-EASY-CHANGE-BLOCK
+##END-EASY-CHANGE-BLOCK
 
 name = "CbcBuilder"
 # Collection of sources required to build CbcBuilder
