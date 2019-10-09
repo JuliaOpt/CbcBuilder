@@ -3,15 +3,20 @@
 using BinaryBuilder
 
 # To propose an update to the Cbc binaries please follow these steps:
-# 1) Fork the CbcBuilder repository and create a new branch
+# 1) Fork this CbcBuilder repository and create a new branch
 # 2) Modify the build script below and test that it compiles for all architectures by running
 #    julia --color=yes build_tarballs.jl --verbose 
-#    Note: This build make take a long time
-#    Note: Adding the --debug argument to the command will drop you into the build environment for debugging
+#    (This build make take a long time)
+#    (Adding the --debug argument to the command will drop you into the build environment for debugging)
 # 3) Create a github release in your fork of CbcBuilder with the generated tarballs and build_CbcBuilder.vX.X.X.jl
-#    Note: https://github.com/tcnksm/ghr is usefull to automate this release creation
-# 4) 
-#a new version
+#    (https://github.com/tcnksm/ghr is usefull to automate this release creation)
+# 4) Fork the Cbc.jl repository (https://github.com/JuliaOpt/Cbc.jl) and create a new branch
+# 5) Update the portion marked by ## START-VERSION-UPDATE-BLOCK / ## END-VERSION-UPDATE-BLOCK in Cbc.jl/deps/build.jl
+#    on your branch of Cbc.jl with the corresponding lines in the build_CbcBuilder.vX.X.X.jl file you generated in steps 2)/3)
+# 6) Check that tests pass on your branch of Cbc (e.g. `[test Cbc`)
+# 7) Create a PR for CbcBuilder.jl (No need to create a PR for Cbc.jl)
+
+
 # Ideally, any update would need changes only on the EASY-CHANGE-BLOCK below
 # Note that if two sources have the same version then they need to have
 # different extension so that the corresponding filenames are different
