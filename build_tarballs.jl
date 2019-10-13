@@ -4,22 +4,33 @@ using BinaryBuilder
 
 # To propose an update to the Cbc binaries please follow these steps:
 # 1) Fork this CbcBuilder repository and create a new branch
-# 2) Modify the build script below and test that it compiles for all architectures by running
-#    julia --color=yes build_tarballs.jl --verbose 
-#    (This build make take a long time)
-#    (Adding the --debug argument to the command will drop you into the build environment for debugging)
+# 2) Modify the build script (e.g., changing the portion marked by START/END-EASY-CHANGE-BLOCK) and test that it compiles 
+#    for all architectures by running `julia --color=yes build_tarballs.jl --verbose`. (Note that this build make take a 
+#    long time. Also, adding the --debug argument to the command will drop you into the build environment for debugging)
 # 3) Create a github release in your fork of CbcBuilder with the generated tarballs and build_CbcBuilder.vX.X.X.jl
 #    (https://github.com/tcnksm/ghr is usefull to automate this release creation)
 # 4) Fork the Cbc.jl repository (https://github.com/JuliaOpt/Cbc.jl) and create a new branch
 # 5) Update the portion marked by ## START-VERSION-UPDATE-BLOCK / ## END-VERSION-UPDATE-BLOCK in Cbc.jl/deps/build.jl
 #    on your branch of Cbc.jl with the corresponding lines in the build_CbcBuilder.vX.X.X.jl file you generated in steps 2)/3)
-# 6) Check that tests pass on your branch of Cbc (e.g. `[test Cbc`)
+# 6) Check that tests pass on your branch of Cbc (e.g. `]test Cbc`)
 # 7) Create a PR for CbcBuilder.jl (No need to create a PR for Cbc.jl)
 
 
 # Ideally, any update would need changes only on the EASY-CHANGE-BLOCK below
 # Note that if two sources have the same version then they need to have
-# different extension so that the corresponding filenames are different
+# different extension so that the corresponding filenames are different. 
+# For instance, consider the following case where COINMumps and COINLapack 
+# both use versio 1.6.0:
+#    COINMumps_version = v"1.6.0"
+#    COINMumps_extension = "tar.gz"
+#    COINLapack_version = v"1.6.0"
+#    COINLapack_extension = "zip"
+# In this case, we need one of the libraries to use the "tar.gz" extension and 
+# the other to use the "zip" extension. The reason for this is that the file names
+# for github releases for COINMumps and COINLapack for the configuration above will
+# be respectively `1.6.0.tar.gz` and `1.6.0.zip`. If we instead had used the same
+# extensions, one of the files would have been overwritten.
+
 
 ##START-EASY-CHANGE-BLOCK
 Cbc_version = v"2.10.3"
